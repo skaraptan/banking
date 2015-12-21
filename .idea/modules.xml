@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/banking-app/banking-app.iml" filepath="$PROJECT_DIR$/banking-app/banking-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/banking-model/banking-model.iml" filepath="$PROJECT_DIR$/banking-model/banking-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/banking-services/banking-services.iml" filepath="$PROJECT_DIR$/banking-services/banking-services.iml" />
+      <module fileurl="file://$PROJECT_DIR$/banking-services-impl/banking-services-impl.iml" filepath="$PROJECT_DIR$/banking-services-impl/banking-services-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/firstApp.iml" filepath="$PROJECT_DIR$/firstApp.iml" />
+    </modules>
+  </component>
+</project>
