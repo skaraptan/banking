@@ -1,18 +1,17 @@
 package serviceImpl; /**
  * Created by skaraptan on 2015-11-17.
  */
+
 import DAO.AccountService;
 import model.Account;
-import model.User;
 import model.Operation;
-import org.hibernate.Query;
+import model.User;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import util.HibernateUtil;
 
-import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class AccountServiceImpl implements AccountService{
@@ -31,21 +30,21 @@ public class AccountServiceImpl implements AccountService{
             if(session != null && session.isOpen()){
                 session.close();
             }
+            System.out.println("Successfully created " + account.toString() + "    AN:  " + account.getAccountNumber());
         }
     }
-    public Collection<Account> getAccount(User user) throws SQLException{
+
+    public List<Account> getAccount(User user) throws SQLException{
         Session session = null;
         List accounts = new ArrayList<Account>();
         try {
             session = new HibernateUtil().getSessionFactory().openSession();
-            session.beginTransaction();
-            Integer userId = user.getUserId();
-            Query query = session.createQuery(
-                    "select  from account INNER JOIN users BY user_id WHERE users.user_id = :userId"
-            )
-                    .setInteger("userId", userId);
-            accounts = (List<Account>)query.list();
-           // session.getTransaction().commit();
+            accounts = session.createCriteria(Account.class)
+                    .add(Restrictions.eq("user", user))
+                    .list();
+        }
+        catch  (Exception e){
+            System.err.print(e);
         }
         finally {
             if ( session != null && session.isOpen()){
@@ -54,12 +53,39 @@ public class AccountServiceImpl implements AccountService{
         }
         return accounts;
     }
+    public void newOperation(Operation operation){
 
-    public void newOperation(Long operationId, BigDecimal amount, Boolean isPayment, java.sql.Date date, Account account, Account targetAccount){
+        Exception err = new Exception("Lack of cash");
+        Session session = null;
+        try{
 
-        targetAccount.setMoneyAmount( targetAccount.getMoneyAmount().add(amount)); //changes target account state according to transaction
-        account.setMoneyAmount(account.getMoneyAmount().subtract(amount)); //changes payer account according to transaction
-        new Operation(operationId, amount, isPayment, date, account, targetAccount);
+            if(operation.getAccount().getMoneyAmount().compareTo(operation.getAmount()) < 0){
+                System.out.println("Lack of cash");
+
+                throw err;
+            }
+            else {
+                operation.getTargetAccount().setMoneyAmount(operation.getTargetAccount().getMoneyAmount().add(operation.getAmount())); //changes target account state according to transaction
+                operation.getAccount().setMoneyAmount(operation.getAccount().getMoneyAmount().subtract(operation.getAmount())); //changes payer account according to transaction
+                session = new HibernateUtil().getSessionFactory().openSession();
+                session.beginTransaction();
+                session.update(operation.getTargetAccount());
+                session.update(operation.getAccount());
+                session.getTransaction().commit();
+                new HistoryServiceImpl().addToHistory(operation);
+            }
+        }
+        catch(Exception E){
+                System.err.println("Transaction failed" + err);
+
+        }
+        finally{
+            if(session != null && session.isOpen()){
+                session.close();
+            }
+            System.out.println("Transaction ends properly");
+        }
+
 
     }
 }

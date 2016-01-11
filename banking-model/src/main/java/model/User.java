@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.*;
+
 /**
  * Created by skaraptan on 2015-10-19.
  */
@@ -25,6 +26,9 @@ public class User {
 
     @Column(name = "password")
     private String password;
+
+    //@OneToMany(mappedBy = ".user_id")
+   // private Set<Account> accounts;
 
 
     public User(){}
@@ -75,4 +79,13 @@ public class User {
     public Integer getUserId(){
         return userId;
     }
+
+  /*  public Set<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(Set<Account> accounts) {
+        this.accounts = accounts;
+    }
+    */
 }

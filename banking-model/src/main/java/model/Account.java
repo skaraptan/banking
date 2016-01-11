@@ -20,7 +20,7 @@ public class Account {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-
+    public Account(){}
     public Account(String accountNumber, BigDecimal moneyAmount, User user) {
         this.accountNumber = accountNumber;
         this.moneyAmount = moneyAmount;

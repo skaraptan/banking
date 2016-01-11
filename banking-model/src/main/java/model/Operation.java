@@ -5,7 +5,7 @@ package model; /**
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
 
 
 @Entity
@@ -25,14 +25,15 @@ public class Operation {
     @Column(name = "date")
     private Date date;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "current_account_number", referencedColumnName = "accountNumber")
     private Account account;
 
-    @OneToOne
-    @JoinColumn(name= "user_id")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name= "target_account_number", referencedColumnName = "accountNumber")
     private Account targetAccount;
 
+    public Operation(){}
 
     public Operation(Long operationId, BigDecimal amount, Boolean isPayment, Date date, Account account, Account targetAccount){
         this.operationId = operationId;
@@ -40,7 +41,7 @@ public class Operation {
         this.isPayment = isPayment;
         this.date = date;
         this.account = account;
-        this.targetAccount = account;
+        this.targetAccount = targetAccount;
     }
 
     public void setAmount(BigDecimal amount){
@@ -77,6 +78,6 @@ public class Operation {
         this.targetAccount = targetAccount;
     }
     public Account getTargetAccount(){
-        return account;
+        return targetAccount;
     }
 }

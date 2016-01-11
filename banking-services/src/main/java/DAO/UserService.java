@@ -10,7 +10,7 @@ public interface UserService {
         void createUser(User user) throws SQLException;
         User getById(Integer userId)throws SQLException;
         boolean verifyPassword(String login, String password) throws SQLException;
-        void changePassword(String oldPassword, String newPassword, String confirmPassword) throws SQLException;
+        void changePassword(User user, String oldPassword, String newPassword, String confirmPassword) throws SQLException;
 
 
 

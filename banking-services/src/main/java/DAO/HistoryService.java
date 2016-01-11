@@ -1,8 +1,12 @@
 
 package DAO;
+
+import model.Account;
 import model.Operation;
 
+import java.util.List;
+
 public interface HistoryService {
-    Operation[] getAccountHistory(Long accountNumber);
-    //void addToHistory(Account account, Operation operation);
+    List<Operation> getAccountHistory(Account account);
+    void addToHistory(Operation operation);
 }
