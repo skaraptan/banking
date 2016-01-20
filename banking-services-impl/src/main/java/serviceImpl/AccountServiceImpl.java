@@ -7,6 +7,7 @@ import model.Account;
 import model.Operation;
 import model.User;
 import org.hibernate.Session;
+import org.hibernate.TransactionException;
 import org.hibernate.criterion.Restrictions;
 import util.HibernateUtil;
 
@@ -34,7 +35,7 @@ public class AccountServiceImpl implements AccountService{
         }
     }
 
-    public List<Account> getAccount(User user) throws SQLException{
+    public List<Account> getAccount(User user) throws SQLException {
         Session session = null;
         List accounts = new ArrayList<Account>();
         try {
@@ -42,25 +43,27 @@ public class AccountServiceImpl implements AccountService{
             accounts = session.createCriteria(Account.class)
                     .add(Restrictions.eq("user", user))
                     .list();
-        }
-        catch  (Exception e){
+            if(accounts.isEmpty()){
+                throw new Exception("User has no accounts");
+            }
+        } catch (Exception e) {
             System.err.print(e);
-        }
-        finally {
-            if ( session != null && session.isOpen()){
+        } finally {
+            if (session != null && session.isOpen()) {
                 session.close();
             }
         }
         return accounts;
     }
+
     public void newOperation(Operation operation){
 
-        Exception err = new Exception("Lack of cash");
+        TransactionException err = new TransactionException("Lack of cash");
         Session session = null;
         try{
 
             if(operation.getAccount().getMoneyAmount().compareTo(operation.getAmount()) < 0){
-                System.out.println("Lack of cash");
+                System.out.println("Not enough money");
 
                 throw err;
             }
@@ -71,12 +74,12 @@ public class AccountServiceImpl implements AccountService{
                 session.beginTransaction();
                 session.update(operation.getTargetAccount());
                 session.update(operation.getAccount());
-                session.getTransaction().commit();
                 new HistoryServiceImpl().addToHistory(operation);
+                session.getTransaction().commit();
             }
         }
-        catch(Exception E){
-                System.err.println("Transaction failed" + err);
+        catch(TransactionException E){
+                System.err.println("Transaction failed : \n" + err);
 
         }
         finally{
