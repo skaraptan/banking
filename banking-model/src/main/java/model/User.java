@@ -27,6 +27,7 @@ public class User {
     @Column(name = "password")
     private String password;
 
+
     //@OneToMany(mappedBy = ".user_id")
    // private Set<Account> accounts;
 

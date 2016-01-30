@@ -15,23 +15,30 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AccountServiceImpl implements AccountService{
-    public void createAccount(Account account) throws SQLException{
-        Session session = null;
-        try {
-            session = new HibernateUtil().getSessionFactory().openSession();
-            session.beginTransaction();
-            session.save(account);
-            session.getTransaction().commit();
-        }
-        catch (Exception e){
-            System.err.println(e);
-        }
-        finally {
-            if(session != null && session.isOpen()){
-                session.close();
+public class AccountServiceImpl implements AccountService {
+    public String createAccount(Account account) throws SQLException {
+        String message;
+        if (getAccount(account.getUser()).isEmpty()) {
+            Session session = null;
+            try {
+                session = new HibernateUtil().getSessionFactory().openSession();
+                session.beginTransaction();
+                session.save(account);
+                session.getTransaction().commit();
+            } catch (Exception e) {
+                System.err.println(e);
+            } finally {
+                if (session != null && session.isOpen()) {
+                    session.close();
+                }
+                message = new String("Successfully created " + account.toString() + "    AN:  " + account.getAccountNumber());
+                System.out.println(message);
+                return message;
             }
-            System.out.println("Successfully created " + account.toString() + "    AN:  " + account.getAccountNumber());
+        } else {
+            message = new String("User already has account specified");
+            System.out.println(message);
+            return message;
         }
     }
 
@@ -43,8 +50,8 @@ public class AccountServiceImpl implements AccountService{
             accounts = session.createCriteria(Account.class)
                     .add(Restrictions.eq("user", user))
                     .list();
-            if(accounts.isEmpty()){
-                throw new Exception("User has no accounts");
+            if (accounts.isEmpty()) {
+                throw new Exception("User has no accounts\n");
             }
         } catch (Exception e) {
             System.err.print(e);
@@ -56,40 +63,7 @@ public class AccountServiceImpl implements AccountService{
         return accounts;
     }
 
-    public synchronized void  newOperation(Operation operation){
-
-        TransactionException err = new TransactionException("Lack of cash");
-        Session session = null;
-
-        try{
-
-            if(operation.getAccount().getMoneyAmount().compareTo(operation.getAmount()) < 0){
-                System.out.println("Not enough money");
-
-                throw err;
-            }
-            else {
-                operation.getTargetAccount().setMoneyAmount(operation.getTargetAccount().getMoneyAmount().add(operation.getAmount())); //changes target account state according to transaction
-                operation.getAccount().setMoneyAmount(operation.getAccount().getMoneyAmount().subtract(operation.getAmount())); //changes payer account according to transaction
-                session = new HibernateUtil().getSessionFactory().openSession();
-                session.beginTransaction();
-                session.update(operation.getTargetAccount());
-                session.update(operation.getAccount());
-                new HistoryServiceImpl().addToHistory(operation);
-                session.getTransaction().commit();
-            }
-        }
-        catch(TransactionException E){
-                System.err.println("Transaction failed : \n" + err);
-
-        }
-        finally{
-            if(session != null && session.isOpen()){
-                session.close();
-            }
-            System.out.println("Transaction ends properly");
-        }
-
-
+    public synchronized void newOperation(Operation operation) {
+        new OperationServiceImpl(operation).start();
     }
 }

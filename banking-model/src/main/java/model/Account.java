@@ -29,11 +29,11 @@ public class Account {
     }
     public Account(User user) {
         this.accountNumber = createAccountNumber();
+        this.moneyAmount = new BigDecimal(0);
         this.user = user;
     }
 
     public String createAccountNumber(){
-        if(accountNumber.isEmpty()){
             String accountNumber = new String("12 3430 0000 " +
                     (new Random().nextInt(8999)+1000) + " " +
                     (new Random().nextInt(8999)+1000) + " " +
@@ -41,10 +41,6 @@ public class Account {
                     (new Random().nextInt(8999)+1000));
             setAccountNumber(accountNumber);
             return getAccountNumber();
-        }
-        else{
-            return ("Client already has account specified  : " + getAccountNumber());
-        }
     }
 
     public void setAccountNumber(String accountNumber) {

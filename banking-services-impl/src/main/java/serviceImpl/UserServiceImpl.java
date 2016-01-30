@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
         System.out.println("Successfully created " + user.toString() + "    ID:  " + user.getUserId());
     }
 
-    public User getById(Integer userId) throws SQLException {
+    public User getById(Integer userId) throws Exception {
         User user = null;
         Session session = null;
         try {
@@ -48,6 +48,25 @@ public class UserServiceImpl implements UserService {
     }
 
 
+    public User getByLogin(String login) throws Exception {
+        User user = null;
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            user = (User) session.createCriteria(User.class)
+                    .add(Restrictions.eq("login", login))
+                    .uniqueResult();
+            Hibernate.initialize(user);
+            System.out.println(user.getLogin());
+        } catch (Exception e) {
+            System.out.println("Error, user probably doesn't exist");
+            System.err.print(e);
+        } finally {
+            if (session != null && session.isOpen())
+                session.close();
+        }
+        return user;
+    }
     public boolean verifyPassword(String login, String password) throws SQLException {
         System.out.printf("Test passwd");
         User user = null;
