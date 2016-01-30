@@ -5,6 +5,7 @@ package model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Random;
 
 @Entity
 @Table (name = "Account")
@@ -21,10 +22,29 @@ public class Account {
     @JoinColumn(name = "user_id")
     private User user;
     public Account(){}
-    public Account(String accountNumber, BigDecimal moneyAmount, User user) {
-        this.accountNumber = accountNumber;
+    public Account(BigDecimal moneyAmount, User user) {
+        this.accountNumber = createAccountNumber();
         this.moneyAmount = moneyAmount;
         this.user = user;
+    }
+    public Account(User user) {
+        this.accountNumber = createAccountNumber();
+        this.user = user;
+    }
+
+    public String createAccountNumber(){
+        if(accountNumber.isEmpty()){
+            String accountNumber = new String("12 3430 0000 " +
+                    (new Random().nextInt(8999)+1000) + " " +
+                    (new Random().nextInt(8999)+1000) + " " +
+                    (new Random().nextInt(8999)+1000) + " " +
+                    (new Random().nextInt(8999)+1000));
+            setAccountNumber(accountNumber);
+            return getAccountNumber();
+        }
+        else{
+            return ("Client already has account specified  : " + getAccountNumber());
+        }
     }
 
     public void setAccountNumber(String accountNumber) {

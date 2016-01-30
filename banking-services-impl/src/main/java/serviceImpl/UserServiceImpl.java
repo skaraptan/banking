@@ -47,6 +47,7 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
+
     public boolean verifyPassword(String login, String password) throws SQLException {
         System.out.printf("Test passwd");
         User user = null;

@@ -56,10 +56,11 @@ public class AccountServiceImpl implements AccountService{
         return accounts;
     }
 
-    public void newOperation(Operation operation){
+    public synchronized void  newOperation(Operation operation){
 
         TransactionException err = new TransactionException("Lack of cash");
         Session session = null;
+
         try{
 
             if(operation.getAccount().getMoneyAmount().compareTo(operation.getAmount()) < 0){

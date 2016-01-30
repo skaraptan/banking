@@ -31,7 +31,6 @@
     <bytecodeTargetLevel>
       <module name="banking-app" target="1.5" />
       <module name="banking-model" target="1.5" />
-      <module name="banking-parent" target="1.5" />
       <module name="banking-services" target="1.5" />
       <module name="banking-services-impl" target="1.5" />
       <module name="firstApp" target="1.5" />
