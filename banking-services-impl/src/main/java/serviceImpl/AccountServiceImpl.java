@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AccountServiceImpl implements AccountService {
-    public String createAccount(Account account) throws SQLException {
+    public synchronized String createAccount(Account account) throws SQLException {
         String message;
         if (getAccount(account.getUser()).isEmpty()) {
             Session session = null;
@@ -31,7 +31,7 @@ public class AccountServiceImpl implements AccountService {
                 if (session != null && session.isOpen()) {
                     session.close();
                 }
-                message = new String("Successfully created " + account.toString() + "    AN:  " + account.getAccountNumber());
+                message = new String("Successfully created " + "    AN:  " + account.getAccountNumber());
                 System.out.println(message);
                 return message;
             }

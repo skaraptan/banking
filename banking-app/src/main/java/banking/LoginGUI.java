@@ -50,8 +50,8 @@ public class LoginGUI extends JFrame{
                 }
                 finally {
                     if(success){
+                        new ManageGUI();
                         JOptionPane.showConfirmDialog(panel1, "Login successful");
-
                     }
                 }
             }
