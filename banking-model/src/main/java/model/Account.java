@@ -29,7 +29,7 @@ public class Account {
     }
     public Account(User user) {
         this.accountNumber = createAccountNumber();
-        this.moneyAmount = new BigDecimal(0);
+        this.moneyAmount = new BigDecimal(10000);
         this.user = user;
     }
 

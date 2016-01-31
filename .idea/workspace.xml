@@ -7,24 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3430ace0-7cc9-4f00-b57b-9cc726928436" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/firstApp_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/banking-model/src/main/META-INF/MANIFEST.MF" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/banking-model/src/main/java/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/banking-app/target/classes/banking/App.class" afterPath="$PROJECT_DIR$/banking-app/target/classes/banking/App.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/banking-app/target/classes/banking/DeleteAccountGUI$1.class" afterPath="$PROJECT_DIR$/banking-app/target/classes/banking/DeleteAccountGUI$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/banking-app/target/classes/banking/DeleteAccountGUI.class" afterPath="$PROJECT_DIR$/banking-app/target/classes/banking/DeleteAccountGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/banking-app/target/classes/banking/NewTransactionGUI$1.class" afterPath="$PROJECT_DIR$/banking-app/target/classes/banking/NewTransactionGUI$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/banking-app/target/classes/banking/NewTransactionGUI.class" afterPath="$PROJECT_DIR$/banking-app/target/classes/banking/NewTransactionGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/banking-services-impl/target/classes/serviceImpl/AccountServiceImpl.class" afterPath="$PROJECT_DIR$/banking-services-impl/target/classes/serviceImpl/AccountServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/banking-services-impl/target/classes/serviceImpl/OperationServiceImpl.class" afterPath="$PROJECT_DIR$/banking-services-impl/target/classes/serviceImpl/OperationServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/firstApp_jar/firstApp.jar" afterPath="$PROJECT_DIR$/classes/artifacts/firstApp_jar/firstApp.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/banking-app/src/main/java/banking/App.java" afterPath="$PROJECT_DIR$/banking-app/src/main/java/banking/App.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/banking-app/src/main/java/banking/DeleteAccountGUI.form" afterPath="$PROJECT_DIR$/banking-app/src/main/java/banking/DeleteAccountGUI.form" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/banking-app/src/main/java/banking/DeleteAccountGUI.java" afterPath="$PROJECT_DIR$/banking-app/src/main/java/banking/DeleteAccountGUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/banking-app/src/main/java/banking/NewTransactionGUI.java" afterPath="$PROJECT_DIR$/banking-app/src/main/java/banking/NewTransactionGUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/banking-services-impl/src/main/java/serviceImpl/AccountServiceImpl.java" afterPath="$PROJECT_DIR$/banking-services-impl/src/main/java/serviceImpl/AccountServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/banking-services-impl/src/main/java/serviceImpl/OperationServiceImpl.java" afterPath="$PROJECT_DIR$/banking-services-impl/src/main/java/serviceImpl/OperationServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/banking-model/src/main/java/model/Account.java" afterPath="$PROJECT_DIR$/banking-model/src/main/java/model/Account.java" />
     </list>
     <ignored path="firstApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,10 +63,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ManageGUI.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ManageGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/banking-app/src/main/java/banking/ManageGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8791209">
+            <state vertical-scroll-proportion="0.0">
               <caret line="40" column="51" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -111,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Account.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Account.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/banking-model/src/main/java/model/Account.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="33" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.4076923">
+              <caret line="30" column="51" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -184,7 +169,6 @@
         <option value="$PROJECT_DIR$/banking-app/src/main/java/banking/CreateUserGUIThread.java" />
         <option value="$PROJECT_DIR$/banking-app/src/main/java/bank/Client.java" />
         <option value="$PROJECT_DIR$/banking-model/src/main/java/model/User.java" />
-        <option value="$PROJECT_DIR$/banking-model/src/main/java/model/Account.java" />
         <option value="$PROJECT_DIR$/banking-app/src/main/java/banking/LoginGUI.form" />
         <option value="$PROJECT_DIR$/banking-app/src/main/java/banking/CreateUserGUI.form" />
         <option value="$PROJECT_DIR$/banking-app/src/main/java/banking/StartScreen.form" />
@@ -209,6 +193,7 @@
         <option value="$PROJECT_DIR$/banking-app/src/main/java/banking/DeleteAccountGUI.form" />
         <option value="$PROJECT_DIR$/banking-app/src/main/java/banking/DeleteAccountGUI.java" />
         <option value="$PROJECT_DIR$/banking-app/src/main/java/banking/ManageGUI.java" />
+        <option value="$PROJECT_DIR$/banking-model/src/main/java/model/Account.java" />
       </list>
     </option>
   </component>
@@ -1045,7 +1030,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-16" y="-16" width="3232" height="1732" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.104516126" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="1478" y="68" width="356" height="1508" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1057,7 +1042,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33448514" sideWeight="0.4935484" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2283871" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2283871" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32964754" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1490,14 +1475,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/banking-model/src/main/java/model/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="33" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/banking-app/src/main/java/banking/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1571,11 +1548,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/banking-app/src/main/java/banking/ManageGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8791209">
+        <state vertical-scroll-proportion="0.0">
           <caret line="40" column="51" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/banking-model/src/main/java/model/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4076923">
+          <caret line="30" column="51" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
