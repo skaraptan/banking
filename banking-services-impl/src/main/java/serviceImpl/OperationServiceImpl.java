@@ -32,6 +32,7 @@ public class OperationServiceImpl extends Thread {
                     new HistoryServiceImpl().addToHistory(operation);
                     session.getTransaction().commit();
                 }
+                notify();
             } catch (TransactionException E) {
                 System.err.println("Transaction failed : \n" + err);
 

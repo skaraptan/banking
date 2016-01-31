@@ -22,6 +22,8 @@ public class App
         AccountServiceImpl accountService = new AccountServiceImpl();
         HistoryService historyService = new HistoryServiceImpl();
         System.out.println("Test app");
+        //User user = userService.getById(3);
+        //accountService.createAccount(new Account(new BigDecimal(100000), user));
         new Bank().start();
 /*
         //User creation section

@@ -18,7 +18,7 @@ import java.util.List;
 
 public class AccountServiceImpl implements AccountService {
 
-    public synchronized String createAccount(Account account) throws Exception {
+    public synchronized String createAccount(Account account){
         String message;
         if (getAccount(account.getUser()).isEmpty()) {
             Session session = null;

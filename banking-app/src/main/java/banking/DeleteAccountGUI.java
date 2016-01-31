@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 public class DeleteAccountGUI extends JFrame {
     private JPanel panel1;
     private JButton deleteAccountButton;
+    private JButton returnButton;
     private AccountServiceImpl accountService = new AccountServiceImpl();
     private User currentUser;
     public DeleteAccountGUI(User user){
@@ -30,6 +31,12 @@ public class DeleteAccountGUI extends JFrame {
                 accountService.deleteAccount(currentUser);
                 if(accountService.getAccount(currentUser).isEmpty())
                     JOptionPane.showConfirmDialog(panel1, "Account deleted!");
+                new ManageGUI(currentUser);
+                dispose();
+            }
+        });
+        returnButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
                 new ManageGUI(currentUser);
                 dispose();
             }
