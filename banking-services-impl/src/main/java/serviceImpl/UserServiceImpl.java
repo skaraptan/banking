@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
         System.out.println("Successfully created " + user.toString() + "    ID:  " + user.getUserId());
     }
 
-    public User getById(Integer userId) throws Exception {
+    public User getById(Integer userId){
         User user = null;
         Session session = null;
         try {

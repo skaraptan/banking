@@ -4,9 +4,9 @@
 <hibernate-configuration>
     <session-factory>
         <property name="connection.driver_class">org.postgresql.Driver</property>
-        <property name="connection.url">jdbc:postgresql://localhost:5432/banking</property>
-        <property name="connection.username">postgres</property>
-        <property name="connection.password">rfhgbr1995</property>
+        <property name="connection.url">jdbc:postgresql://ec2-52-29-131-169.eu-central-1.compute.amazonaws.com:5432/jakubk</property>
+        <property name="connection.username">jakubk</property>
+        <property name="connection.password">jakubk</property>
         <property name="connection.pool_size">1</property>
         <property name= "cache.provider_class">
             org.hibernate.cache.NoCacheProvider

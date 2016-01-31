@@ -1,5 +1,7 @@
 package bank;
 
+import banking.StartScreen;
+
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
 import java.util.Random;
@@ -11,9 +13,8 @@ import java.util.Random;
 public class Bank extends Thread{
 
     public Bank(){
-
     }
     public void run(){
-
+        new StartScreen();
     }
 }

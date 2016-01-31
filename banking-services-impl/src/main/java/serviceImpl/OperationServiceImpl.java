@@ -10,7 +10,6 @@ import util.HibernateUtil;
  */
 public class OperationServiceImpl extends Thread {
     private Operation operation;
-
     public OperationServiceImpl(Operation operation) {
         this.operation = operation;
     }

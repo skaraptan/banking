@@ -16,6 +16,7 @@ public class StartScreen extends  JFrame{
     public StartScreen(){
         super("ACME Bank");
         setContentPane(panel1);
+        setLocationRelativeTo(null);
         pack();
 
         signInButton.addActionListener(new ActionListener() {

@@ -1,6 +1,7 @@
 package banking;
 
 import DAO.HistoryService;
+import bank.Bank;
 import model.Account;
 import model.Operation;
 import model.User;
@@ -21,7 +22,7 @@ public class App
         AccountServiceImpl accountService = new AccountServiceImpl();
         HistoryService historyService = new HistoryServiceImpl();
         System.out.println("Test app");
-        new StartScreen();
+        new Bank().start();
 /*
         //User creation section
   //      User user1 = new User(null, "Serhiy", "Karaptan", "skaraptan", "rfhgbr1995");

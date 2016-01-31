@@ -25,7 +25,7 @@ public class CreateUserGUI extends JFrame{
     public CreateUserGUI(){
         super("ACME Bank");
         setContentPane(panel1);
-
+        setLocationRelativeTo(null);
         pack();
         registerButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

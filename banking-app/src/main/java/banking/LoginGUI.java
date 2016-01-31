@@ -16,7 +16,7 @@ public class LoginGUI extends JFrame{
     private JTextField loginTextField;
     private JTextField passwordTextField;
     private JButton registerButton;
-    private User user= null;
+    private User user;
     private String login;
     private String password;
 
@@ -24,6 +24,7 @@ public class LoginGUI extends JFrame{
     public LoginGUI(){
         super("ACME Bank");
         setContentPane(panel1);
+        setLocationRelativeTo(null);
         pack();
 
         registerButton.addActionListener(new ActionListener() {
@@ -50,7 +51,7 @@ public class LoginGUI extends JFrame{
                 }
                 finally {
                     if(success){
-                        new ManageGUI();
+                        new ManageGUI(user);
                         JOptionPane.showConfirmDialog(panel1, "Login successful");
                     }
                 }
